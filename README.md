@@ -1,4 +1,4 @@
-Copyright (c) 2020 Alliance for Sustainable Energy, LLC
+
 
 # NREL Super-resolution (SR) Repo
 
