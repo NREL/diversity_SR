@@ -101,16 +101,34 @@ def setUpSE(inpt):
     Case['outputConditionalMoments'] = (inpt['outputConditionalMoments']=='True')
     Case['plotConditionalMoments'] = (inpt['plotConditionalMoments']=='True')
     
+    # Only linear terms?
+    try:
+        Case['LinearSE'] = (inpt['LinearSE']=='True')
+    except KeyError:
+        Case['LinearSE'] = False
 
-    # What SE model to use [0-14]
-    Case['SEmodel'] = int(inpt['SEmodel'])
-    # How many neighbours level
-    if Case['SEmodel'] <=3:
-        Case['neighbourLevels']=0
-    if Case['SEmodel'] >3 and Case['SEmodel'] <=7:
-        Case['neighbourLevels']=1
-    if Case['SEmodel'] >7:
-        Case['neighbourLevels']=2
+    if Case['LinearSE']:
+        # What SE model to use [1-5]
+        Case['SEmodel'] = int(inpt['SEmodel'])
+        # How many neighbours level
+        if Case['SEmodel'] <=1:
+            Case['neighbourLevels']=0
+        if Case['SEmodel'] >1 and Case['SEmodel'] <=3:
+            Case['neighbourLevels']=1
+        if Case['SEmodel'] >3:
+            Case['neighbourLevels']=2
+        
+
+    else:
+        # What SE model to use [1-14]
+        Case['SEmodel'] = int(inpt['SEmodel'])
+        # How many neighbours level
+        if Case['SEmodel'] <=3:
+            Case['neighbourLevels']=0
+        if Case['SEmodel'] >3 and Case['SEmodel'] <=7:
+            Case['neighbourLevels']=1
+        if Case['SEmodel'] >7:
+            Case['neighbourLevels']=2
 
     # Name of the TF record that contains the data
     Case['dataFilename'] = inpt['dataFilename'] 

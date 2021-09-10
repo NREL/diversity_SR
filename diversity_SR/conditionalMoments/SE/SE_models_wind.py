@@ -1067,6 +1067,140 @@ def createSETerms(ResolvedVarNames,Case):
 
     return SETermsRef
 
+
+# Create the linear stochastic estimation terms
+def createLSETerms(ResolvedVarNames,Case):
+    # Terms are created as arrays of references to the resolved variable
+    SETermsRef = []
+    SEmodel = Case['SEmodel']
+    if SEmodel>=1:
+        # N0
+        ind = ResolvedVarNames.index('Uij')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Vij')
+        SETermsRef.append([ind, -1, -1, -1])
+    if SEmodel>=2:
+        # N0 +  N1
+        ind = ResolvedVarNames.index('Uipj')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Vipj')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Uimj')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Vimj')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Uijp')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Vijp')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Uijm')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Vijm')
+        SETermsRef.append([ind, -1, -1, -1])
+    if SEmodel>=3:
+        # N0 +  N1 + C1
+        ind = ResolvedVarNames.index('Uipjp')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Vipjp')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Uimjm')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Vimjm')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Uipjm')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Vipjm')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Uimjp')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Vimjp')
+        SETermsRef.append([ind, -1, -1, -1])
+    if SEmodel>=4:
+        # N0 +  N1 + C1 + N2
+        ind = ResolvedVarNames.index('Uippjp')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Vippjp')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Uippj')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Vippj')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Uippjm')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Vippjm')
+        SETermsRef.append([ind, -1, -1, -1])
+
+        ind = ResolvedVarNames.index('Uipjpp')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Vipjpp')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Uijpp')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Vijpp')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Uimjpp')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Vimjpp')
+        SETermsRef.append([ind, -1, -1, -1])
+
+        ind = ResolvedVarNames.index('Uimmjp')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Vimmjp')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Uimmj')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Vimmj')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Uimmjm')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Vimmjm')
+        SETermsRef.append([ind, -1, -1, -1])
+
+        ind = ResolvedVarNames.index('Uimjmm')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Vimjmm')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Uijmm')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Vijmm')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Uipjmm')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Vipjmm')
+        SETermsRef.append([ind, -1, -1, -1])
+
+
+    if SEmodel>=5:
+        # N0 + N1 + C1 + N2 + C2
+        ind = ResolvedVarNames.index('Uippjmm')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Vippjmm')
+        SETermsRef.append([ind, -1, -1, -1])
+
+
+        ind = ResolvedVarNames.index('Uippjpp')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Vippjpp')
+        SETermsRef.append([ind, -1, -1, -1])
+
+        ind = ResolvedVarNames.index('Uimmjpp')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Vimmjpp')
+        SETermsRef.append([ind, -1, -1, -1])
+
+        ind = ResolvedVarNames.index('Uimmjmm')
+        SETermsRef.append([ind, -1, -1, -1])
+        ind = ResolvedVarNames.index('Vimmjmm')
+        SETermsRef.append([ind, -1, -1, -1])
+
+    return SETermsRef
+
+
+
+
+
+
+
 # Get the names of all the terms (useful for debugging)
 def createSETermsNames(ResolvedVarNames,SETermsRef):
     # Fill SETermsNames
@@ -1091,7 +1225,10 @@ def createSETermsNames(ResolvedVarNames,SETermsRef):
 
 def initSEModel(Case):
     ResolvedVarNames = createResolvedVarNames(Case)
-    SETermsRef = createSETerms(ResolvedVarNames,Case)
+    if Case['LinearSE']:
+        SETermsRef = createLSETerms(ResolvedVarNames,Case)
+    else:
+        SETermsRef = createSETerms(ResolvedVarNames,Case)
     SETermsNames = createSETermsNames(ResolvedVarNames,SETermsRef)
     nTerms = len(SETermsRef)
     par.printRoot('nTerms used for Stochastic Estimation',nTerms)
