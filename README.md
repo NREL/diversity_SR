@@ -15,7 +15,7 @@ The super-resolution is an inherently ill-conditioned problem, with multiple hig
 [Published paper](https://www.sciencedirect.com/science/article/pii/S0021999121007488)
 
 
-[Preprint version](https://arxiv.org/abs/2111.05962)
+[Preprint version (open access)](https://arxiv.org/abs/2111.05962)
 
 
 ```
